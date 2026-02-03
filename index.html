@@ -3,497 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Paradise - Best Coffee Shop</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Coffee Paradise - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        details summary::-webkit-details-marker { display: none; }
+        details summary::marker { display: none; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #d97706 0%, #ea580c 50%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        body {
+            background-image: url('img/coffee-hero-section.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.85) 0%, rgba(249, 115, 22, 0.85) 50%, rgba(255, 237, 213, 0.85) 100%);
+            z-index: -1;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <a href="#" class="nav-logo">
-                <h2>☕ Coffee Paradise</h2>
-            </a>
-
-            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#menu" class="nav-link">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#products" class="nav-link">Our Products</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#feedback" class="nav-link">Feedback</a>
-                </li>
-            </ul>
-        </nav>
+<body class="min-h-screen">
+    <!-- Professional Header with Enhanced Styling -->
+    <header class="fixed top-0 w-full z-50 bg-white/98 backdrop-blur-xl shadow-lg border-b-2 border-amber-200/50">
+        <div class="container mx-auto px-4 lg:px-8">
+            <nav class="flex items-center justify-between py-4">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-amber-600 via-orange-500 to-rose-500 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300 rotate-3 group-hover:rotate-6">
+                        <i class="fas fa-coffee text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-black gradient-text">Coffee Paradise</h1>
+                        <p class="text-xs text-gray-600 hidden sm:block font-medium">Premium Coffee Experience</p>
+                    </div>
+                </a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="index.html" class="px-6 py-2.5 text-amber-700 font-bold rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 hover:from-amber-100 hover:to-orange-100 transition-all duration-300 relative group shadow-sm">
+                        Home
+                        <span class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full"></span>
+                    </a>
+                    <a href="menu.html" class="px-6 py-2.5 text-gray-700 font-semibold rounded-xl hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50 hover:text-amber-600 transition-all duration-300">Menu</a>
+                    <a href="about.html" class="px-6 py-2.5 text-gray-700 font-semibold rounded-xl hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50 hover:text-amber-600 transition-all duration-300">About</a>
+                    <a href="menu.html" class="ml-4 px-8 py-2.5 bg-gradient-to-r from-amber-600 via-orange-500 to-rose-500 text-white font-bold rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 hover:from-amber-700 hover:via-orange-600 hover:to-rose-600">
+                        <i class="fas fa-shopping-cart mr-2"></i>Order Now
+                    </a>
+                </div>
+                <details class="lg:hidden">
+                    <summary class="text-gray-700 hover:text-amber-600 transition-colors p-2 cursor-pointer list-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </summary>
+                    <div class="pb-4 border-t border-amber-100 mt-2">
+                        <div class="flex flex-col space-y-2 pt-4">
+                            <a href="index.html" class="px-4 py-3 text-amber-700 font-semibold bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg">Home</a>
+                            <a href="menu.html" class="px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50 hover:text-amber-600 rounded-lg transition-all">Menu</a>
+                            <a href="about.html" class="px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50 hover:text-amber-600 rounded-lg transition-all">About</a>
+                            <a href="menu.html" class="px-4 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-lg text-center shadow-md">Order Now</a>
+                        </div>
+                    </div>
+                </details>
+            </nav>
+        </div>
     </header>
-     
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text fade-in">
-                        <h1>Best Coffee</h1>
-                        <h2>Make your day great with special coffee!</h2>
-                        <p>Welcome to our coffee paradise, where every bean tells a story and every cup sparks joy. Experience the perfect blend of tradition and innovation in every sip.</p>
-                        <div class="hero-buttons">
-                            <a href="#products" class="btn btn-primary">Order Now</a>
-                            <a href="#feedback" class="btn btn-outline">Contact Us</a>
+
+    <!-- Enhanced Hero Section with Animations -->
+    <section class="pt-36 pb-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-100/30 via-transparent to-orange-100/30"></div>
+        <div class="container mx-auto relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8 animate-fade-in">
+                    <div class="inline-block px-4 py-2 bg-gradient-to-r from-amber-100 to-orange-100 rounded-full mb-4">
+                        <span class="text-amber-700 font-semibold text-sm">✨ Premium Quality Coffee</span>
+                    </div>
+                    <h1 class="text-7xl md:text-8xl font-black gradient-text leading-tight">
+                        Best Coffee
+                    </h1>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+                        Make your day great with <span class="gradient-text">special coffee!</span>
+                    </h2>
+                    <p class="text-xl text-gray-700 leading-relaxed font-medium">
+                        Welcome to our coffee paradise, where every bean tells a story and every cup sparks joy. Experience the perfect blend of tradition and innovation in every sip.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-6">
+                        <a href="menu.html" class="group px-10 py-5 bg-gradient-to-r from-amber-600 via-orange-500 to-rose-500 text-white font-bold rounded-full shadow-2xl hover:shadow-amber-500/50 transform hover:scale-110 transition-all duration-300 hover:from-amber-700 hover:via-orange-600 hover:to-rose-600">
+                            <span class="flex items-center">
+                                Explore Menu
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </span>
+                        </a>
+                        <a href="about.html" class="px-10 py-5 bg-white text-amber-700 font-bold rounded-full shadow-xl hover:shadow-2xl border-3 border-amber-600 transform hover:scale-110 transition-all duration-300 hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="relative animate-float">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 rounded-3xl blur-2xl opacity-30 animate-pulse-slow"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-amber-200/50 to-orange-200/50 rounded-3xl transform rotate-6"></div>
+                    <img src="img/coffee-hero-section.png" alt="Coffee" class="relative rounded-3xl shadow-2xl w-full transform hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Featured Products Section -->
+    <section class="py-24 px-6 bg-gradient-to-b from-white/50 via-amber-50/30 to-white/50">
+        <div class="container mx-auto">
+            <div class="text-center mb-20">
+                <div class="inline-block px-6 py-2 bg-gradient-to-r from-amber-100 to-orange-100 rounded-full mb-6">
+                    <span class="text-amber-700 font-bold">☕ Featured Selection</span>
+                </div>
+                <h2 class="text-6xl font-black text-gray-900 mb-6 gradient-text">Featured Products</h2>
+                <p class="text-2xl text-gray-700 font-medium">Discover our most popular coffee selections</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-110 hover:-rotate-1 transition-all duration-500 hover:shadow-2xl border-2 border-transparent hover:border-amber-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/bc/0c/ff/bc0cffc8b21c24b4b571e98b9ab5da12.jpg" alt="Americano" class="w-full h-72 object-cover group-hover:scale-125 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-full font-bold shadow-lg">
+                            Popular
                         </div>
                     </div>
-                    <div class="hero-image-wrapper slide-in-right">
-                        <img src="img/coffee-hero-section.png" alt="Coffee Paradise" class="hero-image">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-black text-gray-900 mb-3">Americano</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Classic espresso with hot water, creating a light layer of crema</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-4xl font-black gradient-text">$3.50</span>
+                            <a href="menu.html" class="px-8 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold rounded-full hover:shadow-xl transform hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-shopping-cart mr-2"></i>Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-110 hover:-rotate-1 transition-all duration-500 hover:shadow-2xl border-2 border-transparent hover:border-amber-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/64/0c/01/640c015d2b806fbe3c73d6571e4fc880.jpg" alt="Caramel Latte" class="w-full h-72 object-cover group-hover:scale-125 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-full font-bold shadow-lg">
+                            Best Seller
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-black text-gray-900 mb-3">Caramel Latte</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Smooth espresso with steamed milk and rich caramel syrup</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-4xl font-black gradient-text">$4.75</span>
+                            <a href="menu.html" class="px-8 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold rounded-full hover:shadow-xl transform hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-shopping-cart mr-2"></i>Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-110 hover:-rotate-1 transition-all duration-500 hover:shadow-2xl border-2 border-transparent hover:border-amber-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/0b/d2/9c/0bd29c7b36e44011db0665c8b567fef5.jpg" alt="Matcha Latte" class="w-full h-72 object-cover group-hover:scale-125 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-full font-bold shadow-lg">
+                            Premium
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-black text-gray-900 mb-3">Matcha Latte</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Premium Japanese green tea powder with steamed milk</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-4xl font-black gradient-text">$5.00</span>
+                            <a href="menu.html" class="px-8 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold rounded-full hover:shadow-xl transform hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-shopping-cart mr-2"></i>Order
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="text-center mt-16">
+                <a href="menu.html" class="inline-block px-12 py-5 bg-gradient-to-r from-amber-600 via-orange-500 to-rose-500 text-white font-black rounded-full shadow-2xl hover:shadow-amber-500/50 transform hover:scale-110 transition-all duration-300 text-lg">
+                    <span class="flex items-center justify-center">
+                        View Full Menu
+                        <i class="fas fa-arrow-right ml-3"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Menu Section -->
-        <section id="menu" class="menu-section">
-            <div class="container">
-                <h1 class="section-title">Our Coffee Menu</h1>
-                <div class="menu-table-wrapper">
-                    <table class="menu-table">
-                        <thead>
-                            <tr>
-                                <th>Picture</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="https://i.pinimg.com/736x/bc/0c/ff/bc0cffc8b21c24b4b571e98b9ab5da12.jpg" alt="Americano Coffee" class="coffee-image">
-                                </td>
-                                <td>
-                                    <div class="coffee-name">Americano</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-description">Classic espresso with hot water, creating a light layer of crema</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-price"><span class="price-symbol">$</span>3.50</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="https://i.pinimg.com/736x/64/0c/01/640c015d2b806fbe3c73d6571e4fc880.jpg" alt="Caramel Coffee" class="coffee-image">
-                                </td>
-                                <td>
-                                    <div class="coffee-name">Caramel Latte</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-description">Smooth espresso with steamed milk and rich caramel syrup</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-price"><span class="price-symbol">$</span>4.75</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="https://i.pinimg.com/736x/e4/5f/bc/e45fbcae1656fb49272d472dbb834596.jpg" alt="Iced Caramel Coffee" class="coffee-image">
-                                </td>
-                                <td>
-                                    <div class="coffee-name">Iced Caramel Coffee</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-description">Chilled coffee with caramel syrup and cream over ice</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-price"><span class="price-symbol">$</span>4.25</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="https://i.pinimg.com/736x/0b/d2/9c/0bd29c7b36e44011db0665c8b567fef5.jpg" alt="Matcha Latte" class="coffee-image">
-                                </td>
-                                <td>
-                                    <div class="coffee-name">Matcha Latte</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-description">Premium Japanese green tea powder with steamed milk</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-price"><span class="price-symbol">$</span>5.00</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="https://i.pinimg.com/736x/aa/58/db/aa58db1f67f7a048ea74029c59bb6adb.jpg" alt="Flat White" class="coffee-image">
-                                </td>
-                                <td>
-                                    <div class="coffee-name">Flat White</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-description">Espresso with velvety microfoam, creating a smooth texture</div>
-                                </td>
-                                <td>
-                                    <div class="coffee-price"><span class="price-symbol">$</span>4.00</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <!-- Enhanced Why Choose Us Section -->
+    <section class="py-24 px-6 bg-gradient-to-br from-white via-amber-50/20 to-orange-50/20">
+        <div class="container mx-auto">
+            <div class="text-center mb-20">
+                <div class="inline-block px-6 py-2 bg-gradient-to-r from-amber-100 to-orange-100 rounded-full mb-6">
+                    <span class="text-amber-700 font-bold">⭐ Why We're Special</span>
+                </div>
+                <h2 class="text-6xl font-black text-gray-900 mb-6 gradient-text">Why Choose Us</h2>
+                <p class="text-2xl text-gray-700 font-medium">What makes our coffee special</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="group text-center p-10 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border-2 border-transparent hover:border-amber-300">
+                    <div class="w-24 h-24 bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 rounded-full flex items-center justify-center mx-auto mb-8 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
+                        <i class="fas fa-coffee text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-gray-900 mb-6">Premium Quality</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">We source only the finest coffee beans from around the world</p>
+                </div>
+                <div class="group text-center p-10 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border-2 border-transparent hover:border-amber-300">
+                    <div class="w-24 h-24 bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 rounded-full flex items-center justify-center mx-auto mb-8 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
+                        <i class="fas fa-heart text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-gray-900 mb-6">Made with Love</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">Every cup is crafted with passion and attention to detail</p>
+                </div>
+                <div class="group text-center p-10 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border-2 border-transparent hover:border-amber-300">
+                    <div class="w-24 h-24 bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 rounded-full flex items-center justify-center mx-auto mb-8 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-2xl">
+                        <i class="fas fa-star text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-gray-900 mb-6">Expert Baristas</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">Our skilled team ensures the perfect brew every time</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Products Section -->
-        <section id="products" class="products-section">
-            <div class="container">
-                <h1 class="section-title">Our Products</h1>
-                <div class="products-grid">
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/85/85/11/85851111fca1556b7a272dd4d7df2943.jpg" alt="Espresso Coffee" class="product-image">
-                        <h3>Espresso Coffee</h3>
-                        <div class="product-price">
-                            <p>$1.50</p>
+    <!-- Enhanced Professional Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 via-amber-900 to-orange-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        <div class="container mx-auto px-4 lg:px-8 py-20 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Section -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 rounded-2xl flex items-center justify-center shadow-2xl">
+                            <i class="fas fa-coffee text-white text-2xl"></i>
                         </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
+                        <h3 class="text-3xl font-black">Coffee Paradise</h3>
                     </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/66/bd/32/66bd320679db4217c5c20785a961d1bc.jpg" alt="Mocha Ice Coffee" class="product-image">
-                        <h3>Mocha Ice Coffee</h3>
-                        <div class="product-price">
-                            <p>$2.00</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/cb/15/22/cb1522f3deb077c8e53fb3a9648e7e40.jpg" alt="Ice Strawberry" class="product-image">
-                        <h3>Ice Strawberry</h3>
-                        <div class="product-price">
-                            <p>$2.00</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/80/e2/0a/80e20ade3f26efeda7d18959547e23ad.jpg" alt="Cappuccino" class="product-image">
-                        <h3>Cappuccino</h3>
-                        <div class="product-price">
-                            <p>$1.00</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/4e/e4/14/4ee414f11b1391bad0b3b33ad5d2aaf8.jpg" alt="Turkish Coffee" class="product-image">
-                        <h3>Turkish Coffee</h3>
-                        <div class="product-price">
-                            <p>$1.50</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/d2/95/08/d29508ceb1590e202486bef4f245d90f.jpg" alt="Caramel Coffee" class="product-image">
-                        <h3>Caramel Coffee</h3>
-                        <div class="product-price">
-                            <p>$2.50</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/bc/0c/ff/bc0cffc8b21c24b4b571e98b9ab5da12.jpg" alt="Americano Coffee" class="product-image">
-                        <h3>Americano Coffee</h3>
-                        <div class="product-price">
-                            <p>$1.50</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/93/37/bd/9337bdbecb34ddd84f2b2304ebc81ae8.jpg" alt="Somali Coffee" class="product-image">
-                        <h3>Somali Tea</h3>
-                        <div class="product-price">
-                            <p>$1.00</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/20/29/ef/2029ef7a62e7b477632b27c2db403bb8.jpg" alt="Ice Coffee" class="product-image">
-                        <h3>Ice Coffee</h3>
-                        <div class="product-price">
-                            <p>$2.50</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/3c/5e/09/3c5e09c5c796bfecc6bc2703b0533af0.jpg" alt="Cold Matcha" class="product-image">
-                        <h3>Cold Matcha</h3>
-                        <div class="product-price">
-                            <p>$1.50</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/f3/35/3d/f3353da22218a4de90629ea801d6d0ff.jpg" alt="Hot Matcha" class="product-image">
-                        <h3>Hot Matcha</h3>
-                        <div class="product-price">
-                            <p>$1.00</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
-                    </div>
-
-                    <div class="product-item fade-in">
-                        <img src="https://i.pinimg.com/736x/1a/52/33/1a5233807adf33da4938d524d2e75b79.jpg" alt="Caffè Latte" class="product-image">
-                        <h3>Caffè Latte</h3>
-                        <div class="product-price">
-                            <p>$2.00</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Order Now</a>
+                    <p class="text-amber-200 mb-8 leading-relaxed text-lg">Brewing happiness, one cup at a time. Experience the perfect blend of tradition and innovation.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-14 h-14 bg-white/10 hover:bg-gradient-to-br hover:from-amber-600 hover:to-orange-600 rounded-xl flex items-center justify-center transition-all transform hover:scale-125 hover:rotate-12 shadow-lg" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="w-14 h-14 bg-white/10 hover:bg-gradient-to-br hover:from-amber-600 hover:to-orange-600 rounded-xl flex items-center justify-center transition-all transform hover:scale-125 hover:rotate-12 shadow-lg" aria-label="Instagram">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="w-14 h-14 bg-white/10 hover:bg-gradient-to-br hover:from-amber-600 hover:to-orange-600 rounded-xl flex items-center justify-center transition-all transform hover:scale-125 hover:rotate-12 shadow-lg" aria-label="Twitter">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="w-14 h-14 bg-white/10 hover:bg-gradient-to-br hover:from-amber-600 hover:to-orange-600 rounded-xl flex items-center justify-center transition-all transform hover:scale-125 hover:rotate-12 shadow-lg" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <h1 class="section-title">About Us</h1>
                 
-                <div class="about-card fade-in">
-                    <div class="about-content">
-                        <div class="about-image-wrapper">
-                            <img src="img/dhaqane.jpeg" alt="Ahmed Abdirahmaan Dhaqane" class="about-image">
-                        </div>
-                        <div class="about-text">
-                            <h3>Ahmed Abdirahmaan Dhaqane</h3>
-                            <p>Passionate coffee enthusiast and founder of Coffee Paradise. With over 10 years of experience in the coffee industry, Ahmed brings his expertise in sourcing the finest beans and creating unique blends that delight our customers.</p>
-                            <div class="social-links">
-                                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-2xl font-black mb-8 text-amber-300">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-amber-200 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 font-medium text-lg">Home</a></li>
+                        <li><a href="menu.html" class="text-amber-200 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 font-medium text-lg">Menu</a></li>
+                        <li><a href="about.html" class="text-amber-200 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 font-medium text-lg">About Us</a></li>
+                        <li><a href="menu.html" class="text-amber-200 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 font-medium text-lg">Order Online</a></li>
+                    </ul>
                 </div>
-
-                <div class="about-card fade-in">
-                    <div class="about-content reverse">
-                        <div class="about-text">
-                            <h3>Abdisalaam Abdullahi Ibrahim</h3>
-                            <p>Our master barista and coffee artist. Abdisalaam specializes in creating beautiful latte art and perfecting the brewing process. His dedication to quality ensures every cup meets our high standards.</p>
-                            <div class="social-links">
-                                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
-                            </div>
-                        </div>
-                        <div class="about-image-wrapper">
-                            <img src="img/legend.jpg" alt="Abdisalaam Abdullahi Ibrahim" class="about-image">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-card fade-in">
-                    <div class="about-content">
-                        <div class="about-image-wrapper">
-                            <img src="img/abdalla.jpeg" alt="Abdullahi Abdirisak Mahmoud" class="about-image">
-                        </div>
-                        <div class="about-text">
-                            <h3>Abdullahi Abdirisak Mahmoud</h3>
-                            <p>Customer experience specialist and operations manager. Abdullahi ensures that every visit to Coffee Paradise is memorable, from the warm welcome to the perfect service that keeps our customers coming back.</p>
-                            <div class="social-links">
-                                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Feedback Section -->
-        <section id="feedback" class="feedback-section">
-            <div class="container">
-                <h1 class="section-title">Share Your Feedback</h1>
-                <p class="feedback-subtitle">We value your opinion! Help us improve by sharing your experience with us. Your feedback helps us create the perfect coffee experience for everyone.</p>
                 
-                <div class="feedback-form-wrapper">
-                    <form class="feedback-form" action="#" method="POST">
-                        <!-- Personal Information -->
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                        </div>
-                        
-                        <!-- Visit Information -->
-                        <div class="form-group">
-                            <label for="visitDate">When did you visit us?</label>
-                            <input type="date" id="visitDate" name="visitDate">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="visitTime">What time did you visit?</label>
-                            <select id="visitTime" name="visitTime">
-                                <option value="">Select time</option>
-                                <option value="morning">Morning (6 AM - 12 PM)</option>
-                                <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
-                                <option value="evening">Evening (5 PM - 9 PM)</option>
-                                <option value="night">Night (9 PM - 12 AM)</option>
-                            </select>
-                        </div>
-                        
-                        <!-- Coffee Preferences -->
-                        <div class="form-group">
-                            <label>What type of coffee did you order? (Check all that apply)</label>
-                            <div class="checkbox-group">
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="americano" name="coffeeTypes" value="americano">
-                                    <label for="americano">Americano</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="latte" name="coffeeTypes" value="latte">
-                                    <label for="latte">Latte</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="cappuccino" name="coffeeTypes" value="cappuccino">
-                                    <label for="cappuccino">Cappuccino</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="espresso" name="coffeeTypes" value="espresso">
-                                    <label for="espresso">Espresso</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="mocha" name="coffeeTypes" value="mocha">
-                                    <label for="mocha">Mocha</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="matcha" name="coffeeTypes" value="matcha">
-                                    <label for="matcha">Matcha</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Rating -->
-                        <div class="form-group">
-                            <label>How would you rate your overall experience?</label>
-                            <div class="radio-group">
-                                <div class="radio-item">
-                                    <input type="radio" id="excellent" name="rating" value="excellent">
-                                    <label for="excellent">Excellent (5 stars)</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="very-good" name="rating" value="very-good">
-                                    <label for="very-good">Very Good (4 stars)</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="good" name="rating" value="good">
-                                    <label for="good">Good (3 stars)</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="fair" name="rating" value="fair">
-                                    <label for="fair">Fair (2 stars)</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="poor" name="rating" value="poor">
-                                    <label for="poor">Poor (1 star)</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Comments -->
-                        <div class="form-group">
-                            <label for="comments">Additional Comments or Suggestions</label>
-                            <textarea id="comments" name="comments" placeholder="Please share your thoughts, suggestions, or any specific feedback about your experience..."></textarea>
-                        </div>
-                        
-                        <!-- Would you recommend -->
-                        <div class="form-group">
-                            <label>Would you recommend our coffee shop to friends and family?</label>
-                            <div class="radio-group">
-                                <div class="radio-item">
-                                    <input type="radio" id="recommend-yes" name="recommend" value="yes">
-                                    <label for="recommend-yes">Yes, definitely!</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="recommend-maybe" name="recommend" value="maybe">
-                                    <label for="recommend-maybe">Maybe</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="recommend-no" name="recommend" value="no">
-                                    <label for="recommend-no">No, probably not</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Submit Button -->
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> Submit Feedback
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-2xl font-black mb-8 text-amber-300">Contact Us</h4>
+                    <ul class="space-y-5">
+                        <li class="flex items-start space-x-4">
+                            <i class="fas fa-map-marker-alt text-amber-400 mt-1 text-xl"></i>
+                            <span class="text-amber-200 text-lg">123 Coffee Street, City, State 12345</span>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <i class="fas fa-phone text-amber-400 text-xl"></i>
+                            <a href="tel:+1234567890" class="text-amber-200 hover:text-white transition-colors text-lg font-medium">+1 (234) 567-890</a>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <i class="fas fa-envelope text-amber-400 text-xl"></i>
+                            <a href="mailto:info@coffeeparadise.com" class="text-amber-200 hover:text-white transition-colors text-lg font-medium">info@coffeeparadise.com</a>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <i class="fas fa-clock text-amber-400 text-xl"></i>
+                            <span class="text-amber-200 text-lg">Mon - Sat: 7:00 AM - 9:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-2xl font-black mb-8 text-amber-300">Newsletter</h4>
+                    <p class="text-amber-200 mb-6 text-lg">Subscribe to get special offers and updates</p>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="Your email address" class="w-full px-5 py-4 rounded-xl bg-white/10 border-2 border-white/20 text-white placeholder-amber-300 focus:outline-none focus:border-amber-400 focus:bg-white/15 transition-all text-lg font-medium">
+                        <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-black rounded-xl shadow-2xl hover:shadow-amber-500/50 transform hover:scale-105 transition-all text-lg">
+                            Subscribe Now
                         </button>
                     </form>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <div class="footer-wave">
-      <svg viewBox="0 0 1440 100" width="100%" height="100" preserveAspectRatio="none">
-        <path d="M0,40 C480,120 960,0 1440,80 L1440,100 L0,100 Z" fill="#3b141c" opacity="0.8"/>
-      </svg>
-    </div>
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-brand">
-          <h2>Coffee Legend</h2>
-          <p>Brewing happiness, one cup at a time.</p>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t-2 border-white/20 pt-10">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                    <p class="text-amber-200 text-lg font-medium">&copy; 2026 Coffee Paradise. All rights reserved.</p>
+                    <div class="flex space-x-8 text-lg">
+                        <a href="#" class="text-amber-200 hover:text-white transition-colors font-medium">Privacy Policy</a>
+                        <a href="#" class="text-amber-200 hover:text-white transition-colors font-medium">Terms of Service</a>
+                        <a href="#" class="text-amber-200 hover:text-white transition-colors font-medium">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-links">
-          <a href="#menu">Menu</a>
-          <a href="#about">About</a>
-          <a href="#products">Products</a>
-          <a href="#feedback">Feedback</a>
-        </div>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Coffee Legend. All rights reserved.</p>
-      </div>
     </footer>
-    
+
 </body>
 </html>
