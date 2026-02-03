@@ -1,6 +1,4 @@
-// ================================
-// Coffee Menu Data
-// ================================
+// Coffee Menu
 const coffeeMenu = [
     { id: 1, name: "Americano", price: 3.50 },
     { id: 2, name: "Caramel Latte", price: 4.75 },
@@ -16,14 +14,9 @@ const coffeeMenu = [
     { id: 12, name: "Ice Coffee", price: 2.50 }
 ];
 
-// ================================
-// Wait for page to load completely
-// ================================
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ================================
-    // 1) DOM MANIPULATION - Get all elements from the page
-    // ================================
+    // all elements 
     var coffeeSelect = document.getElementById('coffeeSelect');
     var quantity = document.getElementById('quantity');
     var customerName = document.getElementById('customerName');
@@ -37,42 +30,28 @@ document.addEventListener('DOMContentLoaded', function() {
     var orderConfirmationBox = document.getElementById('orderConfirmation');
     var addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
-    // ================================
-    // Populate coffee dropdown menu
-    // ================================
+    // dropdown menu
+    
     if (coffeeSelect) {
-        // Loop through each coffee in the menu
         coffeeMenu.forEach(function(coffee) {
-            // Create a new option element
             var newOption = document.createElement('option');
-            // Set the option value to coffee ID
             newOption.value = coffee.id;
-            // Set the text shown to user (name and price)
             newOption.textContent = coffee.name + ' - $' + coffee.price.toFixed(2);
-            // Add the option to the dropdown
             coffeeSelect.appendChild(newOption);
         });
     }
 
-    // ================================
-    // Function to update price display
-    // ================================
     function updatePrice() {
-        // Check if elements exist
         if (!coffeeSelect || !quantity || !priceDisplay) {
             return;
         }
 
-        // Get selected coffee ID and quantity
         var selectedId = parseInt(coffeeSelect.value, 10);
         var qty = parseInt(quantity.value, 10);
-
-        // Find the selected coffee in our menu
         var selectedCoffee = coffeeMenu.find(function(coffee) {
             return coffee.id === selectedId;
         });
 
-        // Calculate and display total price
         if (selectedCoffee && qty > 0) {
             var total = selectedCoffee.price * qty;
             priceDisplay.textContent = '$' + total.toFixed(2);
@@ -81,9 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ================================
-    // 2) EVENT HANDLING - Listen for changes
-    // ================================
+    
     
     // Update price when coffee selection changes
     if (coffeeSelect) {
@@ -98,19 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize price display on page load
     updatePrice();
 
-    // ================================
-    // Check if we're on the menu page (has order form)
-    // ================================
+    
     if (!orderForm || !feedbackMessage || !orderSummaryBox || !orderConfirmationBox) {
-        // Not on menu page, stop here
         return;
     }
 
-    // ================================
     // Helper function to show feedback messages
-    // ================================
+    
     function showFeedback(message, isError) {
-        // Show the feedback message box
         feedbackMessage.style.display = 'block';
         
         // Create the message with icon
@@ -143,48 +115,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ================================
-    // 2) EVENT HANDLING - "Add to Cart" button clicks
-    // ================================
+    // Add to Cart button clicks
     addToCartButtons.forEach(function(button) {
         button.addEventListener('click', function() {
-            // Get the coffee ID from the button's data attribute
             var coffeeIdText = button.getAttribute('data-coffee-id');
             var coffeeId = parseInt(coffeeIdText, 10);
-
-            // Find the coffee in our menu array
             var selectedCoffee = coffeeMenu.find(function(coffee) {
                 return coffee.id === coffeeId;
             });
 
-            // If coffee found and dropdown exists, update the form
             if (selectedCoffee && coffeeSelect) {
-                // Set the dropdown to this coffee
                 coffeeSelect.value = String(selectedCoffee.id);
 
-                // Update the price display
                 updatePrice();
-
-                // Show success message
                 showFeedback(
                     selectedCoffee.name + ' was added to your order. Scroll down to finish the form.',
                     false
                 );
-
                 // Scroll smoothly to the order form
                 orderForm.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
 
-    // ================================
-    // 3) VALIDATION AND USER FEEDBACK - Form submission
-    // ================================
+    // 3) Form submission
     orderForm.addEventListener('submit', function(event) {
-        // Stop the form from submitting normally (prevent page reload)
         event.preventDefault();
 
-        // Array to collect all validation errors
         var errors = [];
 
         // Validate coffee selection
@@ -200,27 +157,20 @@ document.addEventListener('DOMContentLoaded', function() {
             errors.push('Quantity must be a number between 1 and 50.');
         }
 
-        // ================================
-        // Validate Customer Name - Easy for Beginners
-        // ================================
+        // Validate Customer Name 
         if (!customerName || customerName.value.trim() === '') {
             errors.push('Full name is required.');
         } else {
-            // Get the name value and remove extra spaces
             var nameValue = customerName.value.trim();
             
-            // Check 1: Name must be at least 2 characters long
             if (nameValue.length < 2) {
                 errors.push('Name must be at least 2 characters long.');
             }
             
-            // Check 2: Name must be no more than 50 characters
             if (nameValue.length > 50) {
                 errors.push('Name must be no more than 50 characters.');
             }
             
-            // Check 3: Name should only contain letters and spaces
-            // This regular expression checks: only letters (a-z, A-Z) and spaces allowed
             var namePattern = /^[a-zA-Z\s]+$/;
             if (!namePattern.test(nameValue)) {
                 errors.push('Name can only contain letters and spaces. No numbers or special characters allowed.');
@@ -232,38 +182,30 @@ document.addEventListener('DOMContentLoaded', function() {
             errors.push('Email address is required.');
         } else {
             var emailValue = customerEmail.value.trim();
-            // Simple email validation: must have @ and .
             if (emailValue.indexOf('@') === -1 || emailValue.indexOf('.') === -1) {
                 errors.push('Please enter a valid email address.');
             }
         }
 
-        // ================================
-        // Validate Phone Number - Easy for Beginners
-        // ================================
+        // Validate Phone Number 
+
         if (!customerPhone || customerPhone.value.trim() === '') {
             errors.push('Phone number is required.');
         } else {
-            // Get the phone value and remove extra spaces
             var phoneValue = customerPhone.value.trim();
             
-            // Remove common phone formatting characters (spaces, dashes, parentheses, plus sign)
-            // This allows users to enter phone in different formats like:
-            // +1234567890, (123) 456-7890, 123-456-7890, etc.
+            
             var phoneDigitsOnly = phoneValue.replace(/[\s\-\(\)\+]/g, '');
             
-            // Check 1: Phone must have at least 10 digits (minimum for most phone numbers)
             if (phoneDigitsOnly.length < 10) {
                 errors.push('Phone number must have at least 10 digits.');
             }
             
-            // Check 2: Phone must have no more than 15 digits (international standard)
             if (phoneDigitsOnly.length > 15) {
                 errors.push('Phone number must have no more than 15 digits.');
             }
             
-            // Check 3: Phone should only contain numbers (after removing formatting)
-            // This checks if all remaining characters are digits (0-9)
+           
             var phonePattern = /^\d+$/;
             if (!phonePattern.test(phoneDigitsOnly)) {
                 errors.push('Phone number can only contain numbers and formatting characters (spaces, dashes, parentheses, +).');
@@ -275,23 +217,16 @@ document.addEventListener('DOMContentLoaded', function() {
             errors.push('Delivery address is required.');
         }
 
-        // ================================
-        // If there are errors, show them and stop
-        // ================================
+       
         if (errors.length > 0) {
-            // Join all errors with line breaks
             var errorHtml = errors.join('<br>');
             showFeedback(errorHtml, true);
 
-            // Hide summary and confirmation boxes
             orderSummaryBox.style.display = 'none';
             orderConfirmationBox.style.display = 'none';
             return;
         }
 
-        // ================================
-        // If validation passes, show order summary
-        // ================================
         
         // Find the selected coffee
         var selectedCoffeeId = parseInt(coffeeSelect.value, 10);
@@ -326,9 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show success feedback message
         showFeedback('Your order looks good! Please review the summary below. Form will reset in 7 seconds...', false);
 
-        // ================================
-        // Reset form after 7 seconds
-        // ================================
         setTimeout(function() {
             // Reset all form fields
             if (orderForm) {
@@ -364,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 feedbackMessage.style.display = 'none';
             }, 3000);
-        }, 7000); // 7 seconds = 7000 milliseconds
+        }, 7000); 
     });
 
 });
